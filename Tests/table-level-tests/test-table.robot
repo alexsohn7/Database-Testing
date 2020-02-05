@@ -24,8 +24,8 @@ Insert multiple records into customers table
   log to console  ${output}
   Should Be Equal As Strings  ${output}  None
 
-Check Ryan record exists in customers table
-  check if exists in database  SELECT id from Test_DB.customers WHERE first_name="Ryan";
+Check Paul record exists in customers table
+  check if exists in database  SELECT id from Test_DB.customers WHERE first_name="Paul";
 
 Check Jio record does not exists in the customers table
   check if not exists in database   SELECT id from Test_DB.customers WHERE first_name="jio";
@@ -37,13 +37,13 @@ Verify row count is zero
   row count is 0  SELECT * FROM Test_DB.customers WHERE first_name='Eunice';
 
 Verify row count is equal to some value 
-  row count is equal to x  SELECT * FROM Test_DB.customers WHERE first_name='Evan';  12
+  row count is equal to x  SELECT * FROM Test_DB.customers WHERE first_name='Jane';  1
 
 Verify row count is greater than some value
-  row count is greater than x  SELECT * FROM Test_DB.customers WHERE first_name='Evan';  8
+  row count is greater than x  SELECT * FROM Test_DB.customers WHERE first_name='Jane';  0
 
 Verify row count is less than some value
-  row count is less than x  SELECT * FROM Test_DB.customers WHERE first_name='Evan';   30
+  row count is less than x  SELECT * FROM Test_DB.customers WHERE first_name='Jane';   2
 
 Update record in person table
   ${output}=  Execute SQL String  UPDATE Test_DB.customers SET first_name='Alex' WHERE last_name='Rang'
